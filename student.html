@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Student Panel</div>
+                <button id="logoutBtn" class="btn btn-danger">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container dashboard-grid">
+        <aside class="sidebar">
+            <button data-target="view-books" class="active">Search Books</button>
+            <button data-target="my-books">My Books / Return</button>
+        </aside>
+
+        <main class="main-content">
+            <section id="view-books">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2>Library Catalog</h2>
+                    <input type="text" id="searchInput" placeholder="Search by title or author..." style="padding: 8px; width: 250px;">
+                </div>
+                
+                <div id="bookListContainer" class="book-grid">
+                    </div>
+            </section>
+
+            <section id="my-books" class="hidden">
+                <h2>My Issued Books</h2>
+                <table id="myBooksTable">
+                    <thead>
+                        <tr>
+                            <th>Book Title</th><th>Issue Date</th><th>Due Date</th><th>Fine</th><th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p style="margin-top: 20px; font-size: 0.9em; color: #666;">* Fine is calculated at $5 per day after due date.</p>
+            </section>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Admin Panel</div>
+                <button id="logoutBtn" class="btn btn-danger">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container dashboard-grid">
+        <aside class="sidebar">
+            <button data-target="manage-books" class="active">Manage Books</button>
+            <button data-target="add-book">Add New Book</button>
+            <button data-target="issued-books">View All Issued</button>
+        </aside>
+
+        <main class="main-content">
+            <section id="manage-books">
+                <h2>Book Inventory</h2>
+                <table id="adminBookTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>Title</th><th>Author</th><th>Cat</th><th>Qty</th><th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <section id="add-book" class="hidden">
+                <h2>Add New Book</h2>
+                <form onsubmit="handleAddBook(event)">
+                    <div class="form-group">
+                        <label>Book Title</label>
+                        <input type="text" id="bookTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Author</label>
+                        <input type="text" id="bookAuthor" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="bookCategory">
+                            <option>Fiction</option>
+                            <option>Science</option>
+                            <option>Technology</option>
+                            <option>History</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="number" id="bookQty" min="1" value="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Book</button>
+                </form>
+            </section>
+
+            <section id="issued-books" class="hidden">
+                <h2>Issued Books & Fines</h2>
+                <table id="issuedBookTable">
+                    <thead>
+                        <tr>
+                            <th>Book</th><th>User</th><th>Issue Date</th><th>Return Date</th><th>Current Fine</th><th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
